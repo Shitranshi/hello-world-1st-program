@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main ()
+{
+	int count=0,j,n;
+	scanf("%d",&n);
+int sum=sumint(n);
+	printf("%d",sum);
+	
+return;	
+}
+int sumint(int x){
+if(x<10)
+{return x;
+}
+return(x%10+sumint(x/10));}
