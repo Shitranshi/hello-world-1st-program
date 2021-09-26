@@ -1,0 +1,30 @@
+#include<stdio.h>
+int main()
+{
+	FILE *ptr;
+	FILE *newf;
+	
+	char ch,c;
+	ptr=fopen("program.txt","r");
+	newf=fopen("newfile.txt","w");
+	c=fgetc(ptr);
+	while(c!=EOF)
+	{
+		putc(c,newf);
+		c=getc(ptr);
+		
+	}
+	
+  fseek(ptr,0,SEEK_END);
+   int i=0 ,intial_pos=ftell(ptr);
+	while(i<intial_pos)
+	{    i++;
+		fseek(ptr,-i,SEEK_END);
+		ch=getc(ptr);
+       
+		printf("%c",ch);
+	}
+	fclose(ptr);
+	fclose(newf);
+		return;
+}
